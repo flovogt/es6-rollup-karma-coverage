@@ -1,0 +1,16 @@
+# package files
+package-lock.json
+
+# generated Folders
+coverage
+node_modules
+generated_docs
+target
+
+# node
+.npm/
+.config/
+.node-gyp/
+
+# ide
+.vscode/

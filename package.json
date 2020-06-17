@@ -1,0 +1,54 @@
+{
+  "name": "my-module",
+  "version": "0.1.1-alpha",
+  "author": "flovogt",
+  "private": "true",
+  "license": "Apache 2.0",
+  "description": "This is a sample node module including configuration for rollup and karma coverage",
+  "main": "./pkg/MyModule-esm.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:flovogt/es6-rollup-karma-coverage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/flovogt/es6-rollup-karma-coverage/issues"
+  },
+  "directories": {
+    "test": "test",
+    "docs": "docs"
+  },
+  "files": [
+    "pkg/**/*.js"
+  ],
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "cross-env": "^7.0.2",
+    "karma": "^5.1.0",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-coverage": "^2.0.2",
+    "karma-coverage-istanbul-reporter": "^3.0.3",
+    "karma-mocha": "^2.0.1",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-rollup-preprocessor": "^7.0.5",
+    "karma-sinon": "^1.0.5",
+    "karma-sourcemap-loader": "^0.3.7",
+    "mocha": "^8.0.1",
+    "sinon": "^9.0.2",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^2.16.1",
+    "rollup-plugin-istanbul": "^2.0.1",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "local-web-server": "^4.2.1"
+  },
+  "scripts": {
+    "test": "karma start",
+    "test:chromeNoSandbox": "cross-env BROWSER=ChromeHeadlessNoSandbox npm test",
+    "test:chrome:debug": "cross-env DEBUG=true BROWSER=Chrome npm test",
+    "test:coverage": "cross-env COVERAGE=true npm test",
+    "test:coverage:ci": "cross-env COVERAGE=true BROWSER=ChromeHeadlessNoSandbox npm test",
+    "test:show-coverage": "run-s -c test:coverage coverage:browser",
+    "coverage:browser": "ws -d coverage/lcov-report",
+    "build": "rollup -c rollup.config.js"
+  }
+}
